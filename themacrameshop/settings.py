@@ -16,18 +16,14 @@ import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
 SECRET_KEY = os.getenv('SECRET_KEY')
-=======
-SECRET_KEY = os.environ('SECRET_KEY')
->>>>>>> 245834e77906b21e5b97058be844c2786e43b3f0
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -44,15 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'django.contrib.sites',
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'macrameshop',
-=======
->>>>>>> 245834e77906b21e5b97058be844c2786e43b3f0
 ]
 
 MIDDLEWARE = [
@@ -70,16 +62,15 @@ ROOT_URLCONF = 'themacrameshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-<<<<<<< HEAD
                 'django.template.context_processors.request',  # allauth
-=======
-                'django.template.context_processors.request',
->>>>>>> 245834e77906b21e5b97058be844c2786e43b3f0
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -90,7 +81,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'themacrameshop.wsgi.application'
 
 
-<<<<<<< HEAD
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -111,19 +101,15 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
-
-=======
->>>>>>> 245834e77906b21e5b97058be844c2786e43b3f0
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
