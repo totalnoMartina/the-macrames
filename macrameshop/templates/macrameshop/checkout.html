@@ -3,5 +3,72 @@
 
 {% block content %}
 <h2 class="display-3 text-success"> Check this out !:)</h2>
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-6" id="form-wrapper">
+            <form id="form">
+                <div id="user-info">
+                    <div class="form-field">
+                        <input required class="form-control" type="text" name="name" placeholder="Name..">
+                    </div>
+                    <div class="form-field">
+                        <input required class="form-control" type="email" name="email" placeholder="Email..">
+                    </div>
+                </div>
+
+                <div id="shipping-info">
+                    <hr>
+                    <p>Shipping Information:</p>
+                    <hr>
+                    <div class="form-field">
+                        <input class="form-control" type="text" name="address" placeholder="Address..">
+                    </div>
+                    <div class="form-field">
+                        <input class="form-control" type="text" name="city" placeholder="City..">
+                    </div>
+                    <div class="form-field">
+                        <input class="form-control" type="text" name="state" placeholder="State..">
+                    </div>
+                    <div class="form-field">
+                        <input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
+                    </div>
+                    <div class="form-field">
+                        <input class="form-control" type="text" name="country" placeholder="Zip code..">
+                    </div>
+                </div>
+
+                <hr>
+                <input id="form-button" class="btn btn-outline-success btn-block" type="submit" value="Continue">
+            </form>
+        </div>
+        <br>
+        <br>
+        <!-- <div class="col hidden" id="payment-info">
+            <small>Paypal Options</small>
+        </div>
+    -->
+
+        <div class="col-md-6 order-summary shadow-sm rounded">
+            <a class="btn btn-outline-dark my-2" href="{% url 'shopping-cart' %}">&#x2190; Back to Cart</a>
+            <hr>
+            <h3>Order Summary</h3>
+            <hr>
+            <div class="row">
+                <div class="col"><img class="img-fluid" src="{% static 'images/2+placeholder.png' %}"></div>
+                <div class="col">
+                    <p>Product 1</p>
+                </div>
+                <div class="col">
+                    <p>$20.00</p>
+                </div>
+                <div class="col">
+                    <p>x2</p>
+                </div>
+            </div>
+            <h5>Items: 2</h5>
+            <h5>Total: $4</h5>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

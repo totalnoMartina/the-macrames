@@ -2,6 +2,47 @@
 {% load static %}
 
 {% block content %}
-<h2 class="display-3 text-success"> It works ! :)</h2>
+<div class="container-fluid"></div>
+<h2 class="display-3 text-success text-center"> Macrame Shop</h2>
 
+
+
+<div class="row row-cols-3 justify-content-center">
+    <div class="col-lg-3 mx-2 my-3">
+        <img class="thumbnail w-75 rounded shadow-sm" src="{% static 'images/2+placeholder.png' %}">
+        <div class="box-element product">
+            <h5 class="m-2"><strong>Product</strong></h5>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+            <a class="btn btn-outline-success" href="#">View</a>
+            <h4 class="inline"><strong>$20</strong></h4>
+
+        </div>
+    </div>
+
+    <div class="col-lg-3 mx-2 my-3">
+        <img class="thumbnail w-75 rounded shadow-sm" src="{% static 'images/2+placeholder.png' %}">
+        <div class="box-element product">
+            <h5 class="m-2"><strong>Product</strong></h5>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+            <a class="btn btn-outline-success" href="#">View</a>
+            <h4 class="inline-block"><strong>$20</strong></h4>
+
+        </div>
+    </div>
+
+    <div class="col-lg-3 mx-2 my-3">
+        <img class="thumbnail w-75 rounded shadow-sm" src="{% static 'images/2+placeholder.png' %}">
+        <div class="box-element product">
+            <h5 class="m-2"><strong>Product</strong></h5>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+            <a class="btn btn-outline-success" href="#">View</a>
+            <h4 class="inline-block"><strong>$20</strong></h4>
+
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}
