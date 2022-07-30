@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'macrameshop',
 =======
 >>>>>>> 245834e77906b21e5b97058be844c2786e43b3f0
 ]
