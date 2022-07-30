@@ -23,7 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = os.getenv('SECRET_KEY')
+=======
+SECRET_KEY = os.environ('SECRET_KEY')
+>>>>>>> 245834e77906b21e5b97058be844c2786e43b3f0
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,11 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'django.contrib.sites',
 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+=======
+>>>>>>> 245834e77906b21e5b97058be844c2786e43b3f0
 ]
 
 MIDDLEWARE = [
@@ -67,7 +74,11 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+<<<<<<< HEAD
                 'django.template.context_processors.request',  # allauth
+=======
+                'django.template.context_processors.request',
+>>>>>>> 245834e77906b21e5b97058be844c2786e43b3f0
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -78,6 +89,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'themacrameshop.wsgi.application'
 
 
+<<<<<<< HEAD
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -99,6 +111,8 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
 
+=======
+>>>>>>> 245834e77906b21e5b97058be844c2786e43b3f0
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
