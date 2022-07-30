@@ -1,3 +1,24 @@
 body {
     background-color: burlywood;
+    font-family: 'Playfair Display', serif;
+
+}
+
+nav {
+    opacity: 0.8;
+}
+
+.navbar-dark {
+    background-color: rgba(115, 51, 13, 0.584);
+}
+
+.btn-outline-success {
+    background-color: brown;
+    color: beige;
+    border: none;
+}
+
+.btn-outline-success:hover {
+    background-color: darksalmon;
+    color: rgb(88, 44, 13);
 }
