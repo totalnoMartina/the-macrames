@@ -16,6 +16,11 @@ nav {
     opacity: 0.75;
 }
 
+.thumbnail {
+    width: 13rem;
+    height: 12rem;
+}
+
 .btn-outline-success {
     background-color: brown;
     color: beige;

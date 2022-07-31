@@ -1,9 +1,13 @@
 from django.shortcuts import render
+from .models import *
 
 
 def index(request):
     """ A view to display homepage """
-    context = {}
+    products = Product.objects.all()
+    context = {
+        'products': products
+    }
     return render(request, 'macrameshop/index.html', context)
 
 

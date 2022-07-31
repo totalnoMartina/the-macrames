@@ -19,7 +19,7 @@ class Product(models.Model):
     description = models.TextField(max_length=900)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     date_added = models.DateField(auto_now=True)
-    # image
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         """ A helper method to see the name of the product """

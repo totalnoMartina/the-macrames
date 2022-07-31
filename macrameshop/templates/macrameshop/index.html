@@ -4,45 +4,23 @@
 {% block content %}
 <div class="container-fluid"></div>
 <h2 class="display-3 text-success text-center"> Macrame Shop</h2>
-
-
-
 <div class="row row-cols-3 justify-content-center">
+    {% for product in products %}
     <div class="col-lg-3 mx-2 my-3">
-        <img class="thumbnail w-75 rounded shadow-sm" src="{% static 'images/2+placeholder.png' %}">
+        {% if product.image %}
+        <img class="thumbnail rounded shadow-sm my-1 img-fluid" src="{{product.image.url}}">
+        {% else %}
+        <img class="thumbnail rounded shadow-sm my-1 img-fluid" src="{% static '/images/2+placeholder.png' %}">
+        {% endif %}
         <div class="box-element product">
-            <h5 class="m-2"><strong>Product</strong></h5>
+            <h5 class="m-2"><strong>{{product.product}}</strong></h5>
             <hr>
             <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
             <a class="btn btn-outline-success" href="#">View</a>
-            <h4 class="inline"><strong>$20</strong></h4>
-
+            <h4 class="inline"><strong>${{product.price|floatformat:2}}</strong></h4>
         </div>
     </div>
-
-    <div class="col-lg-3 mx-2 my-3">
-        <img class="thumbnail w-75 rounded shadow-sm" src="{% static 'images/2+placeholder.png' %}">
-        <div class="box-element product">
-            <h5 class="m-2"><strong>Product</strong></h5>
-            <hr>
-            <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-            <a class="btn btn-outline-success" href="#">View</a>
-            <h4 class="inline-block"><strong>$20</strong></h4>
-
-        </div>
-    </div>
-
-    <div class="col-lg-3 mx-2 my-3">
-        <img class="thumbnail w-75 rounded shadow-sm" src="{% static 'images/2+placeholder.png' %}">
-        <div class="box-element product">
-            <h5 class="m-2"><strong>Product</strong></h5>
-            <hr>
-            <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-            <a class="btn btn-outline-success" href="#">View</a>
-            <h4 class="inline-block"><strong>$20</strong></h4>
-
-        </div>
-    </div>
+    {% endfor %}
 </div>
-</div>
+
 {% endblock %}
