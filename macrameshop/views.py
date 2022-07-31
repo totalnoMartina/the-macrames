@@ -28,6 +28,15 @@ def shopping_cart(request):
 
 def checkout(request):
     """ A view to display shopping cart """
-    context = {}
+    if request.user.is_authenticated:
+        buyer = request.user.buyer
+        order, created = Order.objects.get_or_create(buyer=buyer, completed_order=False)
+        items = order.ordereditems_set.all()
+    else:
+        items = []
+        order = { 'get_cart_tot': 0, 'get_cart_items': 0}
+    context = {
+        'items': items, 'order': order
+    }
 
     return render(request, 'macrameshop/checkout.html', context)

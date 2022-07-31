@@ -55,19 +55,27 @@
             <h3>Order Summary</h3>
             <hr>
             <div class="row">
-                <div class="col"><img class="img-fluid" src="{% static 'images/2+placeholder.png' %}"></div>
+                {% for item in items %}
+                {%  for product in products %}
+                {% if product.image %}
+                <div class="col"><img class="thumbnail-checkout" src="{{item.product.imageURL}}"></div>
+                {% else %}
+                <div class="col"><img class="thumbnail-checkout" src="{% static 'images/2+placeholder.png' %}"></div>
+                {% endif %}
+                {% endfor %}
                 <div class="col">
-                    <p>Product 1</p>
+                    <p>{{item.product.product}}</p>
                 </div>
                 <div class="col">
-                    <p>$20.00</p>
+                    <p>${{item.product.price}}</p>
                 </div>
                 <div class="col">
-                    <p>x2</p>
+                    <p>x {{item.quantity}}</p>
                 </div>
+                {% endfor %}
             </div>
-            <h5>Items: 2</h5>
-            <h5>Total: $4</h5>
+            <h5>Items: {{order.get_cart_items}}</h5>
+            <h5>Total: ${{order.get_cart_tot|floatformat:2}}</h5>
         </div>
     </div>
 </div>

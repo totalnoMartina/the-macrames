@@ -21,6 +21,11 @@ nav {
     height: 12rem;
 }
 
+.thumbnail-checkout {
+    width: 6rem;
+    height: 6rem;
+}
+
 .btn-outline-success {
     background-color: brown;
     color: beige;
