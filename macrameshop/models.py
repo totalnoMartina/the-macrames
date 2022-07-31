@@ -37,12 +37,30 @@ class Order(models.Model):
         """ A helper method to view transation id """
         return str(self.id)
 
+    @property
+    def get_cart_tot(self):
+        orderitems = self.ordereditems_set.all()
+        total = sum([item.get_total_price for item in orderitems])
+        return total
+
+    @property
+    def get_cart_items(self):
+        orderitems = self.ordereditems_set.all()
+        total = sum([item.quantity for item in orderitems])
+        return total
+
 class OrderedItems(models.Model):
     """ A model of ordered items """
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     quantity = models.IntegerField(default=0, null=True)
     added = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def get_total_price(self):
+        """ A method to get the total price """
+        total = self.product.price * self.quantity
+        return total
 
 
 class ShippingDetails(models.Model):
