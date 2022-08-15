@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import *
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 
 def index(request):
@@ -25,6 +27,11 @@ def shopping_cart(request):
     }
     return render(request, 'macrameshop/shopping_cart.html', context)
 
+class AddToCart(CreateView):
+    model = Product
+    fields = '__all__'
+    template_name = 'macrameshop/shopping_cart.html'
+    success_url = reverse_lazy('macrameshop:products')
 
 def checkout(request):
     """ A view to display shopping cart """

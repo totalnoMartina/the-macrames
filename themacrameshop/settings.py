@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'macrameshop',
+    'widget_tweaks',
+    'testcrudapp',
 ]
 
 MIDDLEWARE = [
