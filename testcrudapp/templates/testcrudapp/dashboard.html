@@ -22,19 +22,37 @@
     <h1 class="text-center"> Dashboard</h1>
 
     <div class="row">
-        <div class="col"> Customer</div>
-        <div class="col"> Orders Pending</div>
-        <div class="col">Last 5 orders
-            <table>
+        <div class="col">
+            <h1 class="text-center">Customers</h1>
+            <a class="btn btn-primary" href="#">Create New Customer</a>
+            <table class="table">
                 <tr>
-                    <th>Products</th>
-                    <th>Date ordered</th>
-                    <th>Update</th>
-                    <th>Remove</th>
+                    <th>Customer name</th>
+                    <th>Customer phone</th>
                 </tr>
+
+                {% for customer in customers %}
+                <tr>
+                    <td> {{customer.name}}</td>
+                    <td> {{customer.phone}}</td>
+                </tr>
+                {% endfor %}
+
 
         </div>
     </div>
+    <div class="col"> Orders Pending</div>
+    <div class="col">Last 5 orders
+        <table class="table">
+            <h1 class="text-center">Orders</h1>
+            <tr>
+                <th>Products</th>
+                <th>Date ordered</th>
+                <th>Update</th>
+                <th>Remove</th>
+            </tr>
+    </div>
+
     <br>
     <br>
     <br>
