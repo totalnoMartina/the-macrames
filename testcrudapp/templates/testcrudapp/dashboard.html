@@ -50,7 +50,7 @@
         <div class="card card-body col-md-7 text-center">
             <h1>Last 5 orders</h1>
             <a href="#" class="btn btn-primary">Create New order</a>
-            <table class="table">
+            <table class="table table-sm">
                 <h1 class="text-center">Orders</h1>
                 <tr>
                     <th>Products</th>
@@ -60,8 +60,7 @@
                     <th>Remove</th>
 
                 </tr>
-
-                {% for order in orders %}
+                {% for order in ordering %}
                 <tr>
                     <td> {{order.product}}</td>
                     <td> {{order.date_created}}</td>
