@@ -1,15 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Product, Order, Customer
+from .models import Product, Ordering, Customer
 
 
 def home(request):
     """ To render items in Dashboard - homepage """
-    orders = Order.objects.all()
+    orders = Ordering.objects.all()
     customers = Customer.objects.all()
 
     context = {
-        'order' : orders,
+        'ordering': orders,
         'customers': customers
     }
     return render(request, 'testcrudapp/dashboard.html', context)

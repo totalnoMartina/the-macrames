@@ -17,15 +17,16 @@
                 <th>Category</th>
                 <th>Price</th>
             </tr>
-            {% for i in product_items %}
+
             <tr>
+                {% for i in product_items %}
                 <td>
                     {{i.name}}
-                    {{i.ategory}}
+                    {{i.category}}
                     {{i.price}}
                 </td>
             </tr>
-            {% endif %}
+            {% endfor %}
         </table>
     </div>
 

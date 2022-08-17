@@ -41,7 +41,7 @@ class Product(models.Model):
 
 
 
-class Order(models.Model):
+class Ordering(models.Model):
     """ The class to hold the info on the order """
     STATUS = (
         ('Pending', 'Pending'),

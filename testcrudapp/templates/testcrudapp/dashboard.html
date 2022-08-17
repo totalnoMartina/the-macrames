@@ -21,8 +21,9 @@
 
     <h1 class="text-center"> Dashboard</h1>
 
-    <div class="row">
-        <div class="col">
+    <div class="row text-center">
+        <div class="col-md-3"></div>
+        <div class="col-md-7 text-center">
             <h1 class="text-center">Customers</h1>
             <a class="btn btn-primary" href="#">Create New Customer</a>
             <table class="table">
@@ -37,27 +38,50 @@
                     <td> {{customer.phone}}</td>
                 </tr>
                 {% endfor %}
-
-
+            </table>
         </div>
-    </div>
-    <div class="col"> Orders Pending</div>
-    <div class="col">Last 5 orders
-        <table class="table">
-            <h1 class="text-center">Orders</h1>
-            <tr>
-                <th>Products</th>
-                <th>Date ordered</th>
-                <th>Update</th>
-                <th>Remove</th>
-            </tr>
-    </div>
+        <div class="col-md-3"></div>
 
+    </div>
+    <div class="text-center">{% include  'testcrudapp/status.html' %}</div>
+    <div class="row">
+        <div class="col-md-3"></div>
+
+        <div class="card card-body col-md-7 text-center">
+            <h1>Last 5 orders</h1>
+            <a href="#" class="btn btn-primary">Create New order</a>
+            <table class="table">
+                <h1 class="text-center">Orders</h1>
+                <tr>
+                    <th>Products</th>
+                    <th>Date ordered</th>
+                    <th>Status</th>
+                    <th>Update</th>
+                    <th>Remove</th>
+
+                </tr>
+
+                {% for order in orders %}
+                <tr>
+                    <td> {{order.product}}</td>
+                    <td> {{order.date_created}}</td>
+                    <td> {{order.status}}</td>
+                    <td><a>Update</a></td>
+                    <td><a>Remove</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
     <br>
     <br>
     <br>
     <br>
-    {% include  'testcrudapp/status.html' %}
+    <br>
+    <br>
+
     {% endblock %}
 
 
