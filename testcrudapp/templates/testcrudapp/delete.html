@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<br>
+<h3>Are you sure you want to delete "{{item}}"</h3>
+
+<br>
+<form method="POST" action="{% url 'delete_order' item.id %}">
+    {% csrf_token %}
+    {{form}}
+    <a href="{% url 'dashboard' %}">Cancel</a>
+    <input type="submit" name="Confirm">
+
+</form>
+{% endblock %}

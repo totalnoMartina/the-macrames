@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Product, Ordering, Customer
+from .forms import OrderingForm
 
 
 def home(request):
@@ -42,3 +43,50 @@ def customer(request, pk):
     }
 
     return render(request, 'testcrudapp/customer.html', context)
+
+def create_order(request):
+
+    form = OrderingForm()
+    context = {
+        'form': form,
+    }
+    if request.method == 'POST':
+        print('Printing Post:', request.POST)
+        form = OrderingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    return render(request, 'testcrudapp/order_form.html', context)
+
+def update_order(request, pk):
+
+    order_ = Ordering.objects.get(id=pk)
+
+    form = OrderingForm(instance=order_)
+    context = {
+        'form': form,
+    }
+    if request.method == 'POST':
+        form = OrderingForm(request.POST, instance=order_)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    return render(request, 'testcrudapp/order_form.html', context)
+
+
+def delete_order(request, pk):
+    order_ = Ordering.objects.get(id=pk)
+    form = OrderingForm(instance=order_)
+
+    context = {
+        # 'form': form,
+        'item': order_,
+    }
+
+    if request.method == 'POST':
+        order_.delete()
+        return redirect('/')
+
+    return render(request, 'testcrudapp/delete.html', context)
