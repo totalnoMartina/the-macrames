@@ -20,10 +20,19 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     date_added = models.DateField(auto_now=True)
     image = models.ImageField(null=True, blank=True)
+    likes = models.ManyToManyField(
+        User, related_name='product_like', blank=True)
+
 
     def __str__(self):
         """ A helper method to see the name of the product """
         return self.product
+
+    
+    def number_of_likes(self):
+        return self.likes.count()
+
+
 
 
 class Order(models.Model):

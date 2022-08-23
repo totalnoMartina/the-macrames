@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from .models import *
+from django.shortcuts import render, get_object_or_404, reverse
+from .models import Product, Order, OrderedItems, ShippingDetails
 from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 
@@ -33,6 +35,7 @@ class AddToCart(CreateView):
     template_name = 'macrameshop/shopping_cart.html'
     success_url = reverse_lazy('macrameshop:products')
 
+
 def checkout(request):
     """ A view to display shopping cart """
     if request.user.is_authenticated:
@@ -47,3 +50,10 @@ def checkout(request):
     }
 
     return render(request, 'macrameshop/checkout.html', context)
+
+
+def add_likes(request, pk):
+    liked_product = get_object_or_404(Product, id=pk)
+    liked_product.likes.add(request.user)
+    return HttpResponseRedirect(reverse('home'))
+
